@@ -20,7 +20,7 @@ class GameViewController: UIViewController {
     
     @IBOutlet var newGameLabel: UILabel!
     
-    let wordList: [[Character]] = [["s","a","n","d","e","r","s"],["h","a","n","g","m","a","n"], ["e","m","o","t","i","o","n"], ["p","r","o","b","l","e","m", "c","l","i","n","t","o","n"]]
+    let wordList: [[Character]] = [["s","a","n","d","e","r","s"],["h","a","n","g","m","a","n"], ["e","m","o","t","i","o","n"], ["p","r","o","b","l","e","m"], ["c","l","i","n","t","o","n"]]
     
     var visitedCharList: [Character] = []
     
@@ -155,6 +155,9 @@ class GameViewController: UIViewController {
 
     func resetGame() {
         self.count = 1
+        if self.wordNum==4 {
+            self.wordNum = -1
+        }
         self.wordNum += 1
         self.imageView.image = UIImage(named: "hangman"+String(count)+".gif")
         self.currWordLabel!.text = "_______"
