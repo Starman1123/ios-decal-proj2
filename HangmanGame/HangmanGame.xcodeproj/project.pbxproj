@@ -11,18 +11,18 @@
 		4663231E1BDEC08200DC178B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4663231C1BDEC08200DC178B /* Main.storyboard */; };
 		466323201BDEC08200DC178B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4663231F1BDEC08200DC178B /* Assets.xcassets */; };
 		466323231BDEC08200DC178B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466323211BDEC08200DC178B /* LaunchScreen.storyboard */; };
-		466323311BDEC23D00DC178B /* hangman1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4663232A1BDEC23D00DC178B /* hangman1.gif */; settings = {ASSET_TAGS = (); }; };
-		466323321BDEC23D00DC178B /* hangman2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4663232B1BDEC23D00DC178B /* hangman2.gif */; settings = {ASSET_TAGS = (); }; };
-		466323331BDEC23D00DC178B /* hangman3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4663232C1BDEC23D00DC178B /* hangman3.gif */; settings = {ASSET_TAGS = (); }; };
-		466323341BDEC23D00DC178B /* hangman4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4663232D1BDEC23D00DC178B /* hangman4.gif */; settings = {ASSET_TAGS = (); }; };
-		466323351BDEC23D00DC178B /* hangman5.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4663232E1BDEC23D00DC178B /* hangman5.gif */; settings = {ASSET_TAGS = (); }; };
-		466323361BDEC23D00DC178B /* hangman6.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4663232F1BDEC23D00DC178B /* hangman6.gif */; settings = {ASSET_TAGS = (); }; };
-		466323371BDEC23D00DC178B /* hangman7.gif in Resources */ = {isa = PBXBuildFile; fileRef = 466323301BDEC23D00DC178B /* hangman7.gif */; settings = {ASSET_TAGS = (); }; };
-		466323391BDED84300DC178B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466323381BDED84300DC178B /* MainViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		466323391BDED84300DC178B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466323381BDED84300DC178B /* MainViewController.swift */; };
 		4663233B1BDEDC9500DC178B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 466323241BDEC08200DC178B /* Info.plist */; };
 		4663233C1BDEDC9500DC178B /* MainViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 466323381BDED84300DC178B /* MainViewController.swift */; };
-		4663233E1BDEDDA400DC178B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4663233D1BDEDDA400DC178B /* GameViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4663233E1BDEDDA400DC178B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4663233D1BDEDDA400DC178B /* GameViewController.swift */; };
 		4663233F1BDEDEF700DC178B /* GameViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 4663233D1BDEDDA400DC178B /* GameViewController.swift */; };
+		46AE36F71C02DEF0009C8F58 /* hangman7.png in Resources */ = {isa = PBXBuildFile; fileRef = 46AE36F01C02DEF0009C8F58 /* hangman7.png */; };
+		46AE36F81C02DEF0009C8F58 /* hangman6.png in Resources */ = {isa = PBXBuildFile; fileRef = 46AE36F11C02DEF0009C8F58 /* hangman6.png */; };
+		46AE36F91C02DEF0009C8F58 /* hangman1.png in Resources */ = {isa = PBXBuildFile; fileRef = 46AE36F21C02DEF0009C8F58 /* hangman1.png */; };
+		46AE36FA1C02DEF0009C8F58 /* hangman5.png in Resources */ = {isa = PBXBuildFile; fileRef = 46AE36F31C02DEF0009C8F58 /* hangman5.png */; };
+		46AE36FB1C02DEF0009C8F58 /* hangman3.png in Resources */ = {isa = PBXBuildFile; fileRef = 46AE36F41C02DEF0009C8F58 /* hangman3.png */; };
+		46AE36FC1C02DEF0009C8F58 /* hangman2.png in Resources */ = {isa = PBXBuildFile; fileRef = 46AE36F51C02DEF0009C8F58 /* hangman2.png */; };
+		46AE36FD1C02DEF0009C8F58 /* hangman4.png in Resources */ = {isa = PBXBuildFile; fileRef = 46AE36F61C02DEF0009C8F58 /* hangman4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,15 +32,15 @@
 		4663231F1BDEC08200DC178B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		466323221BDEC08200DC178B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		466323241BDEC08200DC178B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4663232A1BDEC23D00DC178B /* hangman1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hangman1.gif; sourceTree = "<group>"; };
-		4663232B1BDEC23D00DC178B /* hangman2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hangman2.gif; sourceTree = "<group>"; };
-		4663232C1BDEC23D00DC178B /* hangman3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hangman3.gif; sourceTree = "<group>"; };
-		4663232D1BDEC23D00DC178B /* hangman4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hangman4.gif; sourceTree = "<group>"; };
-		4663232E1BDEC23D00DC178B /* hangman5.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hangman5.gif; sourceTree = "<group>"; };
-		4663232F1BDEC23D00DC178B /* hangman6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hangman6.gif; sourceTree = "<group>"; };
-		466323301BDEC23D00DC178B /* hangman7.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hangman7.gif; sourceTree = "<group>"; };
 		466323381BDED84300DC178B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4663233D1BDEDDA400DC178B /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		46AE36F01C02DEF0009C8F58 /* hangman7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hangman7.png; sourceTree = "<group>"; };
+		46AE36F11C02DEF0009C8F58 /* hangman6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hangman6.png; sourceTree = "<group>"; };
+		46AE36F21C02DEF0009C8F58 /* hangman1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hangman1.png; sourceTree = "<group>"; };
+		46AE36F31C02DEF0009C8F58 /* hangman5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hangman5.png; sourceTree = "<group>"; };
+		46AE36F41C02DEF0009C8F58 /* hangman3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hangman3.png; sourceTree = "<group>"; };
+		46AE36F51C02DEF0009C8F58 /* hangman2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hangman2.png; sourceTree = "<group>"; };
+		46AE36F61C02DEF0009C8F58 /* hangman4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hangman4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,15 +73,15 @@
 		466323171BDEC08200DC178B /* HangmanGame */ = {
 			isa = PBXGroup;
 			children = (
-				4663232A1BDEC23D00DC178B /* hangman1.gif */,
-				4663232B1BDEC23D00DC178B /* hangman2.gif */,
-				4663232C1BDEC23D00DC178B /* hangman3.gif */,
-				4663232D1BDEC23D00DC178B /* hangman4.gif */,
-				4663232E1BDEC23D00DC178B /* hangman5.gif */,
-				4663232F1BDEC23D00DC178B /* hangman6.gif */,
-				466323301BDEC23D00DC178B /* hangman7.gif */,
 				466323181BDEC08200DC178B /* AppDelegate.swift */,
 				4663231C1BDEC08200DC178B /* Main.storyboard */,
+				46AE36F01C02DEF0009C8F58 /* hangman7.png */,
+				46AE36F11C02DEF0009C8F58 /* hangman6.png */,
+				46AE36F21C02DEF0009C8F58 /* hangman1.png */,
+				46AE36F31C02DEF0009C8F58 /* hangman5.png */,
+				46AE36F41C02DEF0009C8F58 /* hangman3.png */,
+				46AE36F51C02DEF0009C8F58 /* hangman2.png */,
+				46AE36F61C02DEF0009C8F58 /* hangman4.png */,
 				4663231F1BDEC08200DC178B /* Assets.xcassets */,
 				466323211BDEC08200DC178B /* LaunchScreen.storyboard */,
 				466323241BDEC08200DC178B /* Info.plist */,
@@ -151,16 +151,16 @@
 				4663233F1BDEDEF700DC178B /* GameViewController.swift in Resources */,
 				4663233B1BDEDC9500DC178B /* Info.plist in Resources */,
 				4663233C1BDEDC9500DC178B /* MainViewController.swift in Resources */,
+				46AE36FC1C02DEF0009C8F58 /* hangman2.png in Resources */,
 				466323231BDEC08200DC178B /* LaunchScreen.storyboard in Resources */,
+				46AE36FB1C02DEF0009C8F58 /* hangman3.png in Resources */,
+				46AE36F71C02DEF0009C8F58 /* hangman7.png in Resources */,
 				466323201BDEC08200DC178B /* Assets.xcassets in Resources */,
+				46AE36F91C02DEF0009C8F58 /* hangman1.png in Resources */,
 				4663231E1BDEC08200DC178B /* Main.storyboard in Resources */,
-				466323311BDEC23D00DC178B /* hangman1.gif in Resources */,
-				466323341BDEC23D00DC178B /* hangman4.gif in Resources */,
-				466323321BDEC23D00DC178B /* hangman2.gif in Resources */,
-				466323331BDEC23D00DC178B /* hangman3.gif in Resources */,
-				466323351BDEC23D00DC178B /* hangman5.gif in Resources */,
-				466323361BDEC23D00DC178B /* hangman6.gif in Resources */,
-				466323371BDEC23D00DC178B /* hangman7.gif in Resources */,
+				46AE36FA1C02DEF0009C8F58 /* hangman5.png in Resources */,
+				46AE36FD1C02DEF0009C8F58 /* hangman4.png in Resources */,
+				46AE36F81C02DEF0009C8F58 /* hangman6.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +321,7 @@
 				466323291BDEC08200DC178B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

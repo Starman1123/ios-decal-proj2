@@ -57,12 +57,14 @@ class GameViewController: UIViewController {
     func guessLabelTapped(recognizer :UITapGestureRecognizer) {
         print("guessLabel Tapped")
         if self.textField?.text=="" {
+            print("guessChar is empty string")
             let alertController: UIAlertController = UIAlertController(title: "Error", message: "Please enter your guess", preferredStyle: UIAlertControllerStyle.Alert)
             let OKAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
             alertController.addAction(OKAction)
             self.presentViewController(alertController, animated: true, completion: nil)
         }
         else if self.textField?.text!.characters.count>1 {
+            print("guessChar is longer than 1 char")
             let alertController: UIAlertController = UIAlertController(title: "Error", message: "Please enter only one letter", preferredStyle: UIAlertControllerStyle.Alert)
             let OKAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
             alertController.addAction(OKAction)
@@ -83,7 +85,7 @@ class GameViewController: UIViewController {
             
             if self.currWordList.contains(letter) {
                 //letter entered is in the target word string
-                
+                print("guessChar is in target word string")
                 var indices: [Int] = []
                 var tempCount=0
                 for char in self.currWordList {
@@ -126,9 +128,9 @@ class GameViewController: UIViewController {
                 
             }
             else {
+                print("guessChar is not in target word string")
                 self.count+=1
-                
-                if self.count>7 {
+                if self.count>=7 {
                     let alertController: UIAlertController = UIAlertController(title: "You have lost!", message: "Play again", preferredStyle: UIAlertControllerStyle.Alert)
                     let OKAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
                     alertController.addAction(OKAction)
@@ -136,6 +138,7 @@ class GameViewController: UIViewController {
                     self.textField.text=""
                     resetGame()
                 } else {
+                    print("current image is hangman"+String(count)+".gif")
                     self.imageView.image = UIImage(named: "hangman"+String(count)+".gif")
                 }
                 self.visitedCharList.append((self.textField.text?.characters.first)!)
@@ -143,6 +146,7 @@ class GameViewController: UIViewController {
             }
         }
         else {
+            print("guessChar is not valid")
             let alertController: UIAlertController = UIAlertController(title: "Error", message: "Please enter a valid letter", preferredStyle: UIAlertControllerStyle.Alert)
             let OKAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
             alertController.addAction(OKAction)
