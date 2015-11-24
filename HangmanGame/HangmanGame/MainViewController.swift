@@ -30,7 +30,6 @@ class MainViewController: UIViewController {
     
 
     func tapped(sender: UILabel) {
-        print("tapped")
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("GameViewController") as! GameViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }

@@ -11,18 +11,39 @@ import UIKit
 class GameViewController: UIViewController {
 
     @IBOutlet var imageView: UIImageView!
-    
     @IBOutlet var currWordLabel: UILabel?
-    
-    @IBOutlet var textField: UITextField!
-    
-    @IBOutlet var guessLabel: UILabel?
-    
     @IBOutlet var newGameLabel: UILabel!
     
-    let wordList: [[Character]] = [["s","a","n","d","e","r","s"],["h","a","n","g","m","a","n"], ["e","m","o","t","i","o","n"], ["p","r","o","b","l","e","m"], ["c","l","i","n","t","o","n"]]
+    @IBOutlet var labelA: UILabel!
+    @IBOutlet var labelB: UILabel!
+    @IBOutlet var labelC: UILabel!
+    @IBOutlet var labelD: UILabel!
+    @IBOutlet var labelE: UILabel!
+    @IBOutlet var labelF: UILabel!
+    @IBOutlet var labelG: UILabel!
+    @IBOutlet var labelH: UILabel!
+    @IBOutlet var labelI: UILabel!
+    @IBOutlet var labelJ: UILabel!
+    @IBOutlet var labelK: UILabel!
+    @IBOutlet var labelL: UILabel!
+    @IBOutlet var labelM: UILabel!
+    @IBOutlet var labelN: UILabel!
+    @IBOutlet var labelO: UILabel!
+    @IBOutlet var labelP: UILabel!
+    @IBOutlet var labelQ: UILabel!
+    @IBOutlet var labelR: UILabel!
+    @IBOutlet var labelS: UILabel!
+    @IBOutlet var labelT: UILabel!
+    @IBOutlet var labelU: UILabel!
+    @IBOutlet var labelV: UILabel!
+    @IBOutlet var labelW: UILabel!
+    @IBOutlet var labelX: UILabel!
+    @IBOutlet var labelY: UILabel!
+    @IBOutlet var labelZ: UILabel!
     
-    var visitedCharList: [Character] = []
+    var labelList: [UILabel] = []
+    
+    let wordList: [[Character]] = [["s","a","n","d","e","r","s"],["h","a","n","g","m","a","n"], ["e","m","o","t","i","o","n"], ["p","r","o","b","l","e","m"], ["c","l","i","n","t","o","n"]]
     
     var currWordLabelList: [Character] = ["_","_","_","_","_","_","_"]
     
@@ -35,18 +56,13 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.currWordLabel?.text = "_______"
-        let tapGuess: UITapGestureRecognizer = UITapGestureRecognizer()
-        tapGuess.addTarget(self, action: "guessLabelTapped:")
-        guessLabel?.addGestureRecognizer(tapGuess)
-        guessLabel?.userInteractionEnabled=true
-        self.currWordList=wordList[wordNum % wordList[0].count]
+        resetGame()
         
         let tapNew: UITapGestureRecognizer = UITapGestureRecognizer()
         tapNew.addTarget(self, action: "newGameTapped:")
         newGameLabel?.addGestureRecognizer(tapNew)
         newGameLabel?.userInteractionEnabled=true
-        
+        loadLabels()
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,125 +70,101 @@ class GameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func guessLabelTapped(recognizer :UITapGestureRecognizer) {
-        print("guessLabel Tapped")
-        if self.textField?.text=="" {
-            print("guessChar is empty string")
-            let alertController: UIAlertController = UIAlertController(title: "Error", message: "Please enter your guess", preferredStyle: UIAlertControllerStyle.Alert)
-            let OKAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
-            alertController.addAction(OKAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
+    func loadLabels() {
+        self.labelList = [labelA,labelB,labelC,labelD,labelE,labelF,labelG,labelH,labelI,labelJ,labelK,labelL,labelM,labelN,labelO,labelP,labelQ,labelR,labelS,labelT,labelU,labelV,labelW,labelX,labelY,labelZ]
+        
+        for label:UILabel in self.labelList {
+            let gr = UITapGestureRecognizer(target: self, action: Selector("labelTapped:"))
+            label.addGestureRecognizer(gr)
+            label.userInteractionEnabled = true
         }
-        else if self.textField?.text!.characters.count>1 {
-            print("guessChar is longer than 1 char")
-            let alertController: UIAlertController = UIAlertController(title: "Error", message: "Please enter only one letter", preferredStyle: UIAlertControllerStyle.Alert)
-            let OKAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
-            alertController.addAction(OKAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
-            self.textField.text=""
-        }
-        else if self.textField.text<="z" && "a"<=self.textField.text {
-            let letter: Character = (self.textField.text?.characters.first)!
+        
+    }
+    
+    func labelTapped(sender :UITapGestureRecognizer) {
+        
+        
+        let label = sender.view as! UILabel
+        let str : String = label.text!.lowercaseString
+        let letter: Character = str[str.startIndex.advancedBy(0)]
+        
+        
+        if self.currWordList.contains(letter) {
+            //letter entered is in the target word string
             
-            if self.visitedCharList.contains(letter) {
-                let alertController: UIAlertController = UIAlertController(title: "Error", message: "You have selected this letter before!", preferredStyle: UIAlertControllerStyle.Alert)
+            var indices: [Int] = []
+            var tempCount=0
+            for char in self.currWordList {
+                if char == letter {
+                    indices.append(tempCount)
+                }
+                tempCount+=1
+            }
+            
+            var newString: String = ""
+            for i in 0...6 {
+                if indices.contains(i) {
+                    newString+=String(letter)
+                    self.currWordLabelList[i]=letter
+                }
+                else {
+                    newString+=String(self.currWordLabelList[i])
+                }
+            }
+            self.currWordLabel?.text = newString
+
+            
+            
+            //check if game is over
+            if (!self.currWordLabelList.contains("_")) {
+                let alertController: UIAlertController = UIAlertController(title: "Game Over", message: "You win!!!", preferredStyle: UIAlertControllerStyle.Alert)
                 let OKAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
                 alertController.addAction(OKAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
-                self.textField.text=""
-                return
+                endGame()
+
             }
             
-            if self.currWordList.contains(letter) {
-                //letter entered is in the target word string
-                print("guessChar is in target word string")
-                var indices: [Int] = []
-                var tempCount=0
-                for char in self.currWordList {
-                    if char == letter {
-                        indices.append(tempCount)
-                    }
-                    tempCount+=1
-                }
-                
-                self.visitedCharList.append(letter)
-                for n in indices{
-                    print(n)
-                }
-                
-                var newString: String = ""
-                count=0
-                for count in 0...6 {
-                    if indices.contains(count) {
-                        newString+=String(letter)
-                        self.currWordLabelList[count]=letter
-                    }
-                    else {
-                        newString+=String(self.currWordLabelList[count])
-                    }
-                }
-                self.currWordLabel?.text = newString
-                self.textField.text=""
-                
-                
-                //check if game is over
-                if (!self.currWordLabelList.contains("_")) {
-                    let alertController: UIAlertController = UIAlertController(title: "Game Over", message: "You win!!!", preferredStyle: UIAlertControllerStyle.Alert)
-                    let OKAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
-                    alertController.addAction(OKAction)
-                    self.presentViewController(alertController, animated: true, completion: nil)
-                    self.textField.text=""
-                    self.textField.userInteractionEnabled = false
-                    self.guessLabel?.userInteractionEnabled = false
-                }
-                
-            }
-            else {
-                print("guessChar is not in target word string")
-                self.count+=1
-                if self.count>=7 {
-                    let alertController: UIAlertController = UIAlertController(title: "You have lost!", message: "Play again", preferredStyle: UIAlertControllerStyle.Alert)
-                    let OKAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
-                    alertController.addAction(OKAction)
-                    self.presentViewController(alertController, animated: true, completion: nil)
-                    self.textField.text=""
-                    resetGame()
-                } else {
-                    print("current image is hangman"+String(count)+".gif")
-                    self.imageView.image = UIImage(named: "hangman"+String(count)+".gif")
-                }
-                self.visitedCharList.append((self.textField.text?.characters.first)!)
-                
-            }
         }
         else {
-            print("guessChar is not valid")
-            let alertController: UIAlertController = UIAlertController(title: "Error", message: "Please enter a valid letter", preferredStyle: UIAlertControllerStyle.Alert)
-            let OKAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
-            alertController.addAction(OKAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
-            self.textField.text=""
+            self.count+=1
+            if self.count>=7 {
+                let alertController: UIAlertController = UIAlertController(title: "You have lost!", message: "Play again", preferredStyle: UIAlertControllerStyle.Alert)
+                let OKAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+                alertController.addAction(OKAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
+                endGame()
+            } else {
+                self.imageView.image = UIImage(named: "hangman"+String(count)+".png")
+            }
+            
         }
-        
+        label.hidden = true
         
     }
 
     func resetGame() {
         self.count = 1
-        if self.wordNum==4 {
-            self.wordNum = -1
-        }
-        self.wordNum += 1
-        self.imageView.image = UIImage(named: "hangman"+String(count)+".gif")
+        let randomIndex = Int(arc4random_uniform(UInt32(wordList.count)))
+        self.wordNum = randomIndex
+        self.imageView.image = UIImage(named: "hangman"+String(count))
         self.currWordLabel!.text = "_______"
-        self.currWordList=wordList[wordNum % wordList[0].count]
-        self.visitedCharList=[]
-        self.guessLabel?.userInteractionEnabled = true
-        self.textField.userInteractionEnabled = true
+        self.currWordList=wordList[wordNum]
+        self.currWordLabelList = ["_","_","_","_","_","_","_"]
+         print("currWordList is \(self.currWordList)")
+        for label:UILabel in self.labelList {
+            label.hidden = false
+            label.userInteractionEnabled = true
+        }
+    }
+    
+    func endGame() {
+        for label:UILabel in self.labelList {
+            label.userInteractionEnabled = false
+        }
     }
     
     func newGameTapped(recognizer :UITapGestureRecognizer) {
-        self.textField.text=""
         resetGame()
     }
     
