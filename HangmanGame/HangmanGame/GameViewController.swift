@@ -13,6 +13,7 @@ class GameViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var currWordLabel: UILabel?
     @IBOutlet var newGameLabel: UILabel!
+    @IBOutlet var wrongGuessesLabel: UILabel!
     
     @IBOutlet var labelA: UILabel!
     @IBOutlet var labelB: UILabel!
@@ -41,6 +42,7 @@ class GameViewController: UIViewController {
     @IBOutlet var labelY: UILabel!
     @IBOutlet var labelZ: UILabel!
     
+    
     var labelList: [UILabel] = []
     
     let wordList: [[Character]] = [["s","a","n","d","e","r","s"],["h","a","n","g","m","a","n"], ["e","m","o","t","i","o","n"], ["p","r","o","b","l","e","m"], ["c","l","i","n","t","o","n"]]
@@ -52,6 +54,8 @@ class GameViewController: UIViewController {
     var wordNum = 1
     
     var currWordList: [Character] = ["h","a","n","g","m","a","n"]
+    
+    var wrongGuessesStr: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,9 +131,13 @@ class GameViewController: UIViewController {
             
         }
         else {
+            self.wrongGuessesStr.append(letter)
+            self.wrongGuessesStr += " "
+            self.wrongGuessesLabel.text = "Wrong Guesses: " + self.wrongGuessesStr
             self.count+=1
             if self.count>=7 {
-                let alertController: UIAlertController = UIAlertController(title: "You have lost!", message: "Play again", preferredStyle: UIAlertControllerStyle.Alert)
+                self.imageView.image = UIImage(named: "hangman"+String(count)+".png")
+                let alertController: UIAlertController = UIAlertController(title: "You lost!", message: "Play again", preferredStyle: UIAlertControllerStyle.Alert)
                 let OKAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
                 alertController.addAction(OKAction)
                 self.presentViewController(alertController, animated: true, completion: nil)
@@ -152,6 +160,8 @@ class GameViewController: UIViewController {
         self.currWordList=wordList[wordNum]
         self.currWordLabelList = ["_","_","_","_","_","_","_"]
          print("currWordList is \(self.currWordList)")
+        self.wrongGuessesStr = ""
+        self.wrongGuessesLabel.text = "Wrong Guesses: "
         for label:UILabel in self.labelList {
             label.hidden = false
             label.userInteractionEnabled = true
